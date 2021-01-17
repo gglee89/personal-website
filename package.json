@@ -1,0 +1,84 @@
+{
+  "name": "comingsoon.genealogy.care",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "simplex-noise": "^2.4.0",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "client:dev": "webpack serve --config webpack.dev.js",
+    "dev": "npm run client:dev",
+    "client:prod": "rm -rf /build && webpack --config webpack.prod.js",
+    "build": "npm run client:prod",
+    "deploy": "aws s3 sync --delete build/ s3://genealogy.care",
+    "invalidation": "npm run invalidation:non-www && npm run invalidation:www ",
+    "invalidation:non-www": "aws cloudfront create-invalidation --distribution-id E1A4GV1O9AFG95 --paths /*",
+    "invalidation:www": "aws cloudfront create-invalidation --distribution-id E3VCXHPSYV4WHL --paths /*"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "axios": "^0.21.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.3.0",
+    "css-loader": "^5.0.1",
+    "css-minimizer-webpack-plugin": "^1.1.5",
+    "dotenv-webpack": "^5.1.0",
+    "file-loader": "^6.2.0",
+    "html-loader": "^1.3.2",
+    "html-webpack-plugin": "^4.5.0",
+    "imagemin-webp-webpack-plugin": "^3.3.3",
+    "mini-css-extract-plugin": "^1.2.1",
+    "moment": "^2.29.1",
+    "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "postcss": "^8.1.10",
+    "postcss-loader": "^4.1.0",
+    "react-bootstrap": "^1.4.0",
+    "react-cookie-consent": "^6.2.0",
+    "react-helmet": "^6.1.0",
+    "react-redux": "^7.2.2",
+    "react-router-bootstrap": "^0.25.0",
+    "react-router-dom": "^5.2.0",
+    "react-scroll": "^1.8.1",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "resolve-url-loader": "^3.1.2",
+    "sass-loader": "^10.0.5",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.0.3",
+    "url-loader": "^4.1.1",
+    "web-vitals": "^0.2.4",
+    "webpack": "^5.4.0",
+    "webpack-bundle-analyzer": "^4.1.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.4.0",
+    "workbox-webpack-plugin": "^5.1.4"
+  }
+}

@@ -1,0 +1,70 @@
+// -----------------------------------------------------------------------------
+// When having several themes, this file contains everything related to the
+// default one.
+// -----------------------------------------------------------------------------
+body {
+  background-color: $background-color;
+  color: $text-color;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  min-height: 80vh;
+  margin-top: 0px;
+  padding-top: 30px;
+  position: relative;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid #fff;
+  -webkit-text-fill-color: $text-color;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+::selection {
+  background: $brand-color;
+  color: #fff;
+}
+
+.hide-for-mobile {
+  @media (max-width: map-get($breakpoints, 'large')) {
+    display: none;
+  }
+}
+
+.hide-for-desktop {
+  @media (min-width: map-get($breakpoints, 'large')) {
+    display: none;
+  }
+}
+
+.sd-elevation-1 {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+}
+.sd-elevation-2 {
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+}
+.sd-elevation-3 {
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
+}
+.sd-elevation-4 {
+  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.15);
+}
+.sd-elevation-5 {
+  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.3);
+}

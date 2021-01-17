@@ -1,0 +1,17 @@
+.loader {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .spinner-border {
+    height: 60px;
+    margin: 30px;
+    width: 60px;
+  }
+
+  p {
+    color: $text-color;
+    font-size: 14px;
+  }
+}

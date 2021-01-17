@@ -1,0 +1,11 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+.home {
+  align-items: center;
+  background-color: $background-color;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}

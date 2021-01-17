@@ -1,0 +1,170 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-y: auto;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * Basic styles for links
+ */
+a {
+  color: $link-color;
+  text-decoration: none;
+  transition: color 150ms ease-in-out;
+
+  @include on-event {
+    color: $brand-color;
+    text-decoration: none;
+  }
+}
+
+/**
+ * Basic configuration for forms
+ */
+.form-input,
+[type='color'],
+[type='date'],
+[type='datetime-local'],
+[type='datetime'],
+[type='email'],
+[type='month'],
+[type='number'],
+[type='password'],
+[type='search'],
+[type='tel'],
+[type='text'],
+[type='time'],
+[type='url'],
+[type='week'],
+textarea {
+  background-color: transparent;
+  border: 1px solid hsla(0, 0%, 58.8%, 0.31);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 6px;
+  color: rgba(0, 0, 0, 0.95);
+  font-family: MaisonNeue, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+    Segoe UI Symbol;
+  font-size: 0.875rem;
+  letter-spacing: 0.25px;
+  line-height: 1.5;
+  min-height: 3.125rem;
+  outline: 0;
+  padding-bottom: 0.875rem;
+  padding-left: 1.125rem;
+  padding-top: 0.875rem;
+  width: 100%;
+}
+
+/**
+ * Change autocomplete styles in Chrome
+ **/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px $background-color inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/**
+ * Custom configuration for checkbox
+ */
+@keyframes checked {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+input[type='checkbox'] {
+  left: -99999px;
+  line-height: normal;
+  margin: 4px 0 0;
+  opacity: 0;
+  position: absolute;
+
+  & + label {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+    color: #444;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      margin-right: 16px;
+      width: 29px;
+      min-width: 29px;
+      height: 29px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+    }
+
+    svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 29px;
+      height: 29px;
+
+      polyline {
+        fill: none;
+        stroke-width: 4;
+      }
+    }
+
+    span {
+      @media (max-width: map-get($breakpoints, 'small')) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  &:checked {
+    & + label {
+      svg {
+        polyline {
+          stroke: #4ba373;
+          -webkit-animation: checked 0.3s ease forwards;
+          animation: checked 0.3s ease forwards;
+          stroke-dasharray: 50;
+          stroke-dashoffset: 50;
+        }
+      }
+    }
+  }
+}

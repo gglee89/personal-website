@@ -1,0 +1,8 @@
+.user-layout {
+  display: flex;
+  flex-direction: column;
+
+  &:first-child(.section) {
+    margin-top: 0px;
+  }
+}

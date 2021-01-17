@@ -1,0 +1,25 @@
+{
+  "name": "Genealogy Care",
+  "short_name": "Genealogy Care",
+  "start_url": "/?source=pwa",
+  "icons": [
+    {
+      "src": "/android-chrome-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/ms-icon-310x310.png",
+      "sizes": "310x310",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#b2ebf2",
+  "background_color": "#b2ebf2",
+  "display": "standalone"
+}

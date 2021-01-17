@@ -1,0 +1,127 @@
+.modal-dialog {
+  justify-content: center;
+}
+
+.modal-content {
+  padding: 0;
+  text-align: center;
+  border: 10px solid #636bff;
+  border-radius: 0px;
+  background: url(https://s3.amazonaws.com/cdn.genealogy.care/background-newsletter.jpg)
+    center;
+  background-size: cover;
+  max-height: 80%;
+  max-width: 600px;
+  min-width: 290px;
+
+  .modal-inner {
+    background: rgba(11, 7, 29, 0.8);
+    min-height: 100%;
+    overflow: hidden;
+    padding: 70px;
+
+    @media (max-width: map-get($breakpoints, 'large')) {
+      padding: 40px 20px 40px;
+    }
+  }
+
+  .modal-header {
+    border: none;
+
+    @media (max-width: map-get($breakpoints, 'large')) {
+      padding: 5px 0px;
+    }
+
+    .close {
+      border: none;
+      background: transparent;
+      color: #fff;
+      font-size: 40px;
+      line-height: 40px;
+      position: absolute;
+      text-align: right;
+      padding: 0 10px 0 0;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      opacity: 0.5;
+    }
+  }
+
+  .modal-body {
+    padding: 0;
+
+    h3 {
+      font-size: 50px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #fff;
+
+      @media (max-width: map-get($breakpoints, 'large')) {
+        font-size: 25px;
+      }
+    }
+
+    p {
+      font-size: 20px;
+      color: #f2f3f7;
+
+      @media (max-width: map-get($breakpoints, 'large')) {
+        font-size: 16px;
+      }
+    }
+
+    .contact-form {
+      margin-top: 25px;
+    }
+
+    .form-control {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.4;
+      width: 100%;
+      height: auto;
+      margin-bottom: 2rem;
+      padding: 1.5rem 2rem;
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      text-align: center;
+      color: #fff;
+      border: 1px solid #130c32;
+      border-radius: 3px;
+      outline: medium none;
+      background: #0b071d;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+
+      @media (max-width: map-get($breakpoints, 'large')) {
+        font-size: 14px;
+        padding: 1rem 2rem;
+      }
+    }
+
+    span {
+      z-index: 5;
+    }
+
+    .btn {
+      &:before {
+        z-index: 5;
+      }
+
+      &:hover {
+        &:before {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  .modal-footer {
+    align-items: center;
+    border: none;
+    flex: 1 1 0;
+    justify-content: center;
+  }
+}
